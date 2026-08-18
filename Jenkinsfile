@@ -17,5 +17,13 @@ pipeline {
                 sh 'java -version'
             }
         }
+
+        stage('Build') {
+            steps {
+                sh 'mkdir -p dist'
+                sh 'echo "DevOps Lab Build" > dist/app.txt'
+                sh 'cat dist/app.txt'
+            }
+        }
     }
 }
