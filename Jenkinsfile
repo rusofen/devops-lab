@@ -28,7 +28,7 @@ pipeline {
         stage('Test') {
     steps {
         sh 'test -f dist/app.txt'
-        sh 'grep -q "DevOps Lab Build" dist/app.txt'
+        sh 'grep -q "НЕПРАВИЛЬНИЙ ТЕКСТ" dist/app.txt'
         sh 'echo "Tests passed"'
         }
     }
