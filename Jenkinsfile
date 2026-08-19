@@ -24,6 +24,5 @@ stage('Artifact') {
         archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
     }
 }
-}
 
 
