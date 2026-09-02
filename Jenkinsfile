@@ -10,16 +10,16 @@ pipeline {
         }
 
         stage('Test') {
-    steps {
-        sh 'mvn test'
-    }
+            steps {
+                sh 'mvn test'
+            }
 
-    post {
-        always {
-            junit 'target/surefire-reports/*.xml'
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
-    }
-}
 
         stage('Package') {
             steps {
@@ -33,5 +33,19 @@ pipeline {
             }
         }
 
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished'
+        }
+
+        success {
+            echo 'Pipeline SUCCESS'
+        }
+
+        failure {
+            echo 'Pipeline FAILED'
+        }
     }
 }
