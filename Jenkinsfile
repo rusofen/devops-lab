@@ -12,6 +12,9 @@ pipeline {
             steps {
                 sh 'echo "Application: $APP_NAME"'
                 sh 'echo "Version: $APP_VERSION"'
+                sh 'echo "Build number: $BUILD_NUMBER"'
+                sh 'echo "Job name: $JOB_NAME"'
+                sh 'echo "Workspace: $WORKSPACE"'
                 sh 'mvn clean compile'
             }
         }
