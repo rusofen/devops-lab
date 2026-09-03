@@ -11,7 +11,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn test && exit 1'
+                sh 'mvn test'
             }
 
             post {
@@ -32,28 +32,27 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
-
     }
 
-    ppost {
-    always {
-        echo 'Pipeline finished'
-    }
+    post {
+        always {
+            echo 'Pipeline finished'
+        }
 
-    success {
-        echo 'Pipeline SUCCESS'
-    }
+        success {
+            echo 'Pipeline SUCCESS'
+        }
 
-    failure {
-        echo 'Pipeline FAILED'
-    }
+        failure {
+            echo 'Pipeline FAILED'
+        }
 
-    unstable {
-        echo 'Pipeline UNSTABLE'
-    }
+        unstable {
+            echo 'Pipeline UNSTABLE'
+        }
 
-    cleanup {
-        echo 'Cleanup finished'
+        cleanup {
+            echo 'Cleanup finished'
+        }
     }
 }
-    
