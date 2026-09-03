@@ -35,17 +35,25 @@ pipeline {
 
     }
 
-    post {
-        always {
-            echo 'Pipeline finished'
-        }
+    ppost {
+    always {
+        echo 'Pipeline finished'
+    }
 
-        success {
-            echo 'Pipeline SUCCESS'
-        }
+    success {
+        echo 'Pipeline SUCCESS'
+    }
 
-        failure {
-            echo 'Pipeline FAILED'
-        }
+    failure {
+        echo 'Pipeline FAILED'
+    }
+
+    unstable {
+        echo 'Pipeline UNSTABLE'
+    }
+
+    cleanup {
+        echo 'Cleanup finished'
     }
 }
+    
