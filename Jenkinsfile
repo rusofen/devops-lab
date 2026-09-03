@@ -32,6 +32,10 @@ pipeline {
         }
 
         stage('Package') {
+            environment {
+                BUILD_TYPE = 'release'
+            }
+
             steps {
                 sh 'mvn package -DskipTests'
             }
