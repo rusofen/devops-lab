@@ -1,10 +1,17 @@
 pipeline {
     agent { label 'linux' }
 
+    environment {
+        APP_NAME = 'devops-lab'
+        APP_VERSION = '1.0.0'
+    }
+
     stages {
 
         stage('Compile') {
             steps {
+                sh 'echo "Application: $APP_NAME"'
+                sh 'echo "Version: $APP_VERSION"'
                 sh 'mvn clean compile'
             }
         }
